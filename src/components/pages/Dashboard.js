@@ -5,6 +5,8 @@ import { compose } from "redux";
 import { firestoreConnect } from "react-redux-firebase";
 import { getFirebase } from "react-redux-firebase";
 import { getFirestore } from "redux-firestore";
+import {Link} from "react-router-dom";
+
 
 class Dashboard extends Component {
 
@@ -141,13 +143,13 @@ class Dashboard extends Component {
                 { 
                   !auth.isEmpty ?
                     <Nav className="mr-auto">
-                      <Nav.Link>{auth.email}</Nav.Link>
-                      <Nav.Link onClick={(e) => this._logoutUser(e)}>Logout</Nav.Link>
+                      <Link>{auth.email}</Link>
+                      <Link onClick={(e) => this._logoutUser(e)}>Logout</Link>
                     </Nav>
                   :
                   <Nav className="mr-auto">
-                    <Nav.Link href="/login">Login</Nav.Link>
-                    <Nav.Link href="/register">Register</Nav.Link>
+                    <Link to="/login">Login</Link>|
+                    <Link to="/register">Register</Link>
                   </Nav>
                    
                 }
